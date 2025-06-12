@@ -7,7 +7,12 @@ class SocketService {
     constructor() {
         console.log(`Socket service created`);
         
-        this._server = new Server();
+        this._server = new Server({
+            cors: {
+                origin: 'http://localhost:3000',
+                methods: ['GET', 'POST'],
+            },
+        });
     }
     public eventListener() {
         console.log('Event listener called');
